@@ -12,23 +12,73 @@ h1 {
     color: #66bfbf;
     line-height: 2;
     font-family: 'Sacramento', cursive;
+
 }
 
 hr {
     border: dotted #eaf6f6 6px;
     border-bottom: none;
     width: 4%;
-    margin: 100px auto;
+    margin: 10px auto;
 }
+
 
 .top-container {
     background-color: #eaf6f6;
     position: relative;
     padding-top: 100px;
+    background-attachment: scroll;
 }
 
 .middle-container {
-    margin: 100px 0;
+    background-color: #66bfbf;
+    padding: 50px 0 20px;
+    color: #11999e;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 20px;
+}
+
+.bottom-container {
+  background-color: #66bfbf;
+  padding: 50px 0 20px;
+}
+.contact-message {
+  width: 40%;
+  margin: 40px auto 60px;
+}
+
+.copy-right {
+  color: #eaf6f6;
+  font-size: 0.75rem;
+  padding: 20px 0;
+}
+
+.btn {
+    background: #11cdd4;
+    background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
+    background-image: -o-linear-gradient(top, #11cdd4, #11999e);
+    background-image: linear-gradient(to bottom, #11cdd4, #11999e);
+    -webkit-border-radius: 8;
+    -moz-border-radius: 8;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #30e3cb;
+    background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
+    background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
+    background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
+    background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
+    background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+    text-decoration: none;
 }
 
 .balls {
@@ -44,14 +94,13 @@ hr {
 }
 
 #ball1 {
-  left:27%;
-  margin-left: 0%;
-  margin-right: 50%;
+  right:90%;
+  margin-left: 10%;
 }
 
 #ball2 {
-  left:56%;
-  margin-left: 40%;
+  left:90%;
+  margin-right: 10%;
 }
 
 @keyframes bounce {
