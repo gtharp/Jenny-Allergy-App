@@ -1,7 +1,7 @@
-# Allergy-Forecaster-le-Jenny
+# The Jenny Allergy App
 ## Brief Summary
 
-An application that texts you daily at a set time with a pre-chosen location's current allergy count.
+An application that texts you (Jenny) daily at a set time with a pre-chosen location's current allergy count.
 
 ---
 ### Detailed Summary
