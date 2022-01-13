@@ -1,36 +1,64 @@
+body {
+    color: #40514e;
+    margin: 0;
+    text-align: center;
+    font-family: serif;
+    font-family: 'Merriweather', serif;
+}
+  
 h1 {
-    color: red;
+    margin: 50px auto 0 auto;
+    font-size: 5.625rem;
+    color: #66bfbf;
+    line-height: 2;
+    font-family: 'Sacramento', cursive;
+}
+
+hr {
+    border: dotted #eaf6f6 6px;
+    border-bottom: none;
+    width: 4%;
+    margin: 100px auto;
+}
+
+.top-container {
+    background-color: #eaf6f6;
+    position: relative;
+    padding-top: 100px;
+}
+
+.middle-container {
+    margin: 100px 0;
 }
 
 .balls {
-    border-radius: 50%;
-    background: linear-gradient(
-      35deg,
-      #ccffff,
-      #ffcccc
-    );
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    margin-top: 50px;
-    animation-name: bounce;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
-  #ball1 {
-    left:27%;
+  border-radius: 50%;
+  background: linear-gradient(35deg,#ccffff,#ffcccc);
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
 
-  }
-  #ball2 {
-    left:56%;
+#ball1 {
+  left:27%;
+  margin-left: 0%;
+  margin-right: 50%;
+}
 
-  }
+#ball2 {
+  left:56%;
+  margin-left: 40%;
+}
 
-  @keyframes bounce {
-    0% {
-      top: 0px;
-    }
-    100% {
-      top: 249px;
-    }
+@keyframes bounce {
+  0% {
+    top: 0px;
   }
+  100% {
+    top: 249px;
+  }
+}
