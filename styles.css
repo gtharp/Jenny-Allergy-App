@@ -12,7 +12,19 @@ h1 {
     color: #66bfbf;
     line-height: 2;
     font-family: 'Sacramento', cursive;
+}
 
+h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: #66bfbf;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #11999e;
+    font-family: 'Montserrat', sans-serif;
 }
 
 hr {
@@ -22,6 +34,20 @@ hr {
     margin: 10px auto;
 }
 
+a {
+    color: #11999e;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 20px;
+}
+
+a:hover {
+    color: #eaf6f6;
+}
+
+p {
+    line-height: 2;
+}
 
 .top-container {
     background-color: #eaf6f6;
@@ -42,6 +68,7 @@ hr {
 .bottom-container {
   background-color: #66bfbf;
   padding: 50px 0 20px;
+  margin: 10px 20px;
 }
 .contact-message {
   width: 40%;
