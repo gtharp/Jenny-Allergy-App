@@ -13,4 +13,5 @@ choose the given location for the alergen forecast and the time to be texted.
 
 ### Updates
 
-So far the only real updates I have made here are getting this connected to a github repository and finally getting all of that to work.
+V1: Getting this connected to a github repository and finally getting all of that to work.
+V2: Making a web app that shows the current pollen count for san antonio on the current day.
