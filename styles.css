@@ -1,140 +1,94 @@
+/* Jenny Allergy App – refreshed styles */
+
+/* CSS Variables for quick theming */
+:root {
+  --color-bg: #f5fbff;
+  --color-card: #ffffff;
+  --color-primary: #0e7490; /* teal‑ish */
+  --color-secondary: #22c55e; /* green */
+  --color-danger: #dc2626; /* red */
+  --radius: 1rem;
+  --shadow: 0 4px 18px rgba(0 0 0 / 0.08);
+  --font-main: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Global reset + typography */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  color: #40514e;
-  margin: 0;
+  background: var(--color-bg);
+  font-family: var(--font-main);
+  color: #222;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; width: 100%; max-width: 42rem; margin: 2.5rem auto; padding: 0 1rem; }
+
+/* Header */
+.site-header {
   text-align: center;
-  font-family: serif;
-  font-family: "Merriweather", serif;
+  padding: 3rem 1rem 1rem;
 }
-
-h1 {
-  margin: 50px auto 0 auto;
-  font-size: 5.625rem;
-  color: #66bfbf;
-  line-height: 2;
-  font-family: "Sacramento", cursive;
-}
-
-h2 {
+.site-title {
   font-size: 2.5rem;
-  font-weight: normal;
-  color: #66bfbf;
-  font-family: "Montserrat", sans-serif;
-  padding-bottom: 10px;
+  color: var(--color-primary);
+}
+.tagline {
+  margin-top: 0.25rem;
+  color: #555;
+  font-size: 1.1rem;
 }
 
-h3 {
-  color: #11999e;
-  font-family: "Montserrat", sans-serif;
+/* Forecast card */
+.forecast-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-top: 1.5rem;
 }
+.forecast-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.date { font-size: 0.9rem; color: #666; }
 
-hr {
-  border: dotted #eaf6f6 6px;
-  border-bottom: none;
-  width: 4%;
-  margin: 10px auto;
+/* Status pill */
+.status {
+  font-weight: 600;
+  padding: 0.25em 0.6em;
+  border-radius: 0.5em;
+  display: inline-block;
+  font-size: 1.25rem;
 }
+.status.low  { background: #dcfce7; color: var(--color-secondary); }
+.status.mod  { background: #fef08a; color: #92400e; }
+.status.high { background: #fee2e2; color: var(--color-danger); }
 
-a {
-  color: #11999e;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  margin: 10px 20px;
-}
+/* About section */
+.about { margin-top: 2.5rem; }
+.about h2 { font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--color-primary); }
+.about p + p { margin-top: 0.5rem; }
 
-a:hover {
-  color: #eaf6f6;
+/* Footer */
+.site-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  padding: 2rem 1rem 1rem;
+  border-top: 1px solid #e5e7eb;
 }
+.site-footer a { color: var(--color-primary); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
 
-p {
-  line-height: 2;
-}
-
-.top-container {
-  background-color: #eaf6f6;
-  position: relative;
-  padding-top: 100px;
-  background-attachment: scroll;
-}
-
-.middle-container {
-  background-color: #66bfbf;
-  padding: 50px 0 20px;
-  color: #11999e;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  margin: 10px 20px;
-}
-
-.bottom-container {
-  background-color: #66bfbf;
-  padding: 50px 0 20px;
-  margin: 10px 20px;
-}
-.contact-message {
-  width: 40%;
-  margin: 40px auto 60px;
-}
-
-.copy-right {
-  color: #eaf6f6;
-  font-size: 0.75rem;
-  padding: 20px 0;
-}
-
-.btn {
-  background: #11cdd4;
-  background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
-  background-image: -o-linear-gradient(top, #11cdd4, #11999e);
-  background-image: linear-gradient(to bottom, #11cdd4, #11999e);
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #30e3cb;
-  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
-  text-decoration: none;
-}
-
-.balls {
-  border-radius: 50%;
-  background: linear-gradient(35deg, #ccffff, #ffcccc);
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  margin-top: 50px;
-  animation-name: bounce;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-#ball1 {
-  right: 90%;
-  margin-left: 10%;
-}
-
-#ball2 {
-  left: 90%;
-  margin-right: 10%;
-}
-
-@keyframes bounce {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: 249px;
-  }
-}
+/* Utility: link focus */
+a:focus { outline: 2px dashed var(--color-primary); outline-offset: 2px; }
