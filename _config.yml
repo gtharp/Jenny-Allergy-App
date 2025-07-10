@@ -1,1 +1,33 @@
+# GitHub Pages configuration for Jenny Allergy App
+# =================================================
+# This repo is a static, single‑page site. We disable the default Jekyll
+# theme so our custom HTML/CSS is served untouched, but still provide
+# basic metadata for future expansion.
+
+# Site metadata ---------------------------------------------------------
+title: "Jenny Allergy App"
+description: "Daily pollen & allergen alerts for Jenny in San Antonio, TX"
+author: "George Tharp"
+timezone: "America/Chicago"
+
+# Base URLs --------------------------------------------------------------
+# Leave baseurl empty because this is a *project* site hosted at
+# https://gtharp.github.io/Jenny-Allergy-App
+baseurl: ""
+url: "https://gtharp.github.io/Jenny-Allergy-App"
+
+# Theme & plugins --------------------------------------------------------
+# Disable the default theme; we ship our own HTML/CSS.
+# (Setting theme: null keeps Jekyll from injecting layouts.)
+# Plugins list left empty for now – add jekyll-feed, jekyll-seo-tag later.
+
+theme: null
+plugins: []
+
+# Build rules ------------------------------------------------------------
+# Exclude backend source & GitHub workflows from the rendered site.
+exclude:
+  - src
+  - .github
+  - README.md
 
