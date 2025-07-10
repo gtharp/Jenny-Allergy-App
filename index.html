@@ -1,66 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <title>Jenny's Allergy Forecast</title>
-  </head>
-  <body>
-    <div class="top-container">
-      <h1>The Jenny Allergy App<sup>®</sup></h1>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenny Allergy Alert</title>
+  <meta name="description" content="Daily allergy‑pollen outlook for Jenny in San Antonio, TX." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Jenny Allergy Alert</h1>
+    <p class="tagline">Pollen & allergen forecast for San Antonio, TX</p>
+  </header>
 
-    <hr />
+  <main>
+    <!--
+      Placeholder content.  
+      When you wire up a pollen API, swap the <span class="status"> text via JS.
+    -->
+    <section class="forecast-card">
+      <h2>Today’s Outlook <span class="date" id="today-date"></span></h2>
+      <p class="status high">High cedar pollen today. Expect itchy eyes 🤧</p>
+    </section>
 
-    <div class="middle-container">
-      <p>Is your wife named jenny?</p>
-      <p>Does she suffer from allergies?</p>
+    <section class="about">
+      <h2>What is this?</h2>
       <p>
-        If you answered YES to both of those questions, this app is for you!
-        <small style="text-align:center">(Well, your wife)</small>
+        This tiny web app will send Jenny an SMS each morning with the day’s pollen
+        forecast. That way she knows whether to grab antihistamines before she
+        walks out the door.
       </p>
-    </div>
-
-    <div class="balls" id="ball1"></div>
-    <div class="balls" id="ball2"></div>
-
-    <hr />
-    <div role="button" tabindex="0">
-      <div>
-        <video autoplay="" preload="true" loop="" playsinline="">
-          <source
-            src="https://res.cloudinary.com/graham-media-group/video/upload/c_scale,h_360,w_640/q_auto/v9999999999/media/weather/san_forecast_pollen?_a=ATABlAA0.webm"
-            type="video/webm"
-          />
-          <source
-            src="https://res.cloudinary.com/graham-media-group/video/upload/c_scale,h_360,w_640/q_auto/v9999999999/media/weather/san_forecast_pollen?_a=ATABlAA0.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://res.cloudinary.com/graham-media-group/video/upload/c_scale,h_360,w_640/q_auto/v9999999999/media/weather/san_forecast_pollen?_a=ATABlAA0.ogg"
-            type="video/ogg"
-          />
-        </video>
-      </div>
-    </div>
-
-    <div class="contact-me">
-      <h2>Get In Touch</h2>
-      <h3>If you wish commiserate about allergies and poor air quality.</h3>
-      <p class="contact-message">
-        I hope this app was able to help you find the current allergy count and
-        air quality. If you see any errors feel free to reach out to me.
+      <p>
+        <strong>Current status:</strong> <code>static prototype</code>.  The SMS backend
+        (Twilio + GitHub Action) is in the works.
       </p>
-      <a class="btn" href="mailto:name@email.com">CONTACT ME</a>
-    </div>
+    </section>
+  </main>
 
-    <div class="bottom-container">
-      <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
-      <a class="footer-link" href="https://twitter.com/">Twitter</a>
-      <a class="footer-link" href="https://www.georgetharp.org/">Website</a>
-      <p class="copy-right">© George Tharp 2021.</p>
-    </div>
-  </body>
+  <footer class="site-footer">
+    <p>Made with ❤ by George Tharp · <a href="https://github.com/gtharp/Jenny-Allergy-App">GitHub repo</a></p>
+  </footer>
+
+  <script>
+    // Inject today’s date in friendly format
+    document.getElementById("today-date").textContent = new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+  </script>
+</body>
 </html>
