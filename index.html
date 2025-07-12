@@ -54,7 +54,7 @@
         try {
           const url =
             `https://api.tomorrow.io/v4/timelines?location=${lat},${lon}` +
-            `&fields=pollen_tree_index&timesteps=1d&units=metric&apikey=${API_KEY}`;
+            `&fields=treeIndex&timesteps=1d&units=metric&apikey=${API_KEY}`;
 
           const res = await fetch(url);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
