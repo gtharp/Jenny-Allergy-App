@@ -54,22 +54,22 @@ Prototype **v 0.3** – still a static front-end, but everything is wired for ba
 
 ## Local development
 
-```bash
+
 # Clone
 git clone https://github.com/gtharp/Jenny-Allergy-App.git
 cd Jenny-Allergy-App
 
 # Static prototype (v0.3)
 open index.html    # or just double-click it
-```
+
 
 ### When the backend is ready
 
-```bash
+
 pip install -r requirements.txt
 export TWILIO_SID=... TWILIO_TOKEN=... POLLEN_API_KEY=...
 python src/send_sms.py
-```
+
 
 ---
 
@@ -80,6 +80,5 @@ Pull requests are welcome! Please open an issue first to discuss any major chang
 ## License
 
 MIT — see `LICENSE` for details.
-```
 
 Feel free to tweak the wording or add badges, but this should cover the new deployment setup and UI updates while keeping the roadmap intact.
