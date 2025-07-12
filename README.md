@@ -1,4 +1,3 @@
-```markdown
 # Jenny Allergy App
 
 Daily pollen & allergen alerts for Jenny in San Antonio, TX — delivered straight to her phone.
