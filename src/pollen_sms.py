@@ -7,24 +7,24 @@ import os
 import requests
 from twilio.rest import Client
 
-# --- Config ---------------------------------------------------------------
-LAT, LON = 29.4241, -98.4936  # San Antonio, TX
-API_KEY      = os.environ["POLLEN_API_KEY"]      # Tomorrow.io key (secret)
-TWILIO_SID   = os.environ["TWILIO_SID"]          # Twilio creds (secret)
+# --- Config -----------------------------------------------------------------
+LAT, LON = 29.4241, -98.4936           # San Antonio, TX
+API_KEY      = os.environ["POLLEN_API_KEY"]
+TWILIO_SID   = os.environ["TWILIO_SID"]
 TWILIO_TOKEN = os.environ["TWILIO_TOKEN"]
-TWILIO_FROM  = os.environ["TWILIO_FROM"]         # Your Twilio number  e.g. +12345550123
-TO_NUMBER    = os.environ["JENNY_PHONE"]         # Jenny’s phone        e.g. +12105550123
-# --------------------------------------------------------------------------
+TWILIO_FROM  = os.environ["TWILIO_FROM"]     # e.g. "+12345550123"
+TO_NUMBER    = os.environ["JENNY_PHONE"]     # e.g. "+12105550123"
+# ----------------------------------------------------------------------------
 
-def fetch_pollen():
-    """Return dict with tree and ragweed index values (0–5) for today."""
+def fetch_pollen() -> dict:
+    """Return dict with tree and ragweed index values (0-5) for **today**."""
     url = "https://api.tomorrow.io/v4/timelines"
     params = {
-        "location" : f"{LAT},{LON}",
-        "fields"   : ["treeIndex", "weedRagweedIndex"],
+        "location": f"{LAT},{LON}",
+        "fields": ["treeIndex", "weedRagweedIndex"],
         "timesteps": "1d",
-        "units"    : "imperial",
-        "apikey"   : API_KEY,
+        "units": "imperial",
+        "apikey": API_KEY,
     }
     resp = requests.get(url, params=params, timeout=15)
     resp.raise_for_status()
@@ -38,7 +38,7 @@ def make_message(vals: dict) -> str:
     rag   = LEVEL[vals["weedRagweedIndex"]]
     return f"{today} pollen ➜ Cedar: {cedar} / Ragweed: {rag}"
 
-def send_sms(body: str):
+def send_sms(body: str) -> None:
     client = Client(TWILIO_SID, TWILIO_TOKEN)
     client.messages.create(to=TO_NUMBER, from_=TWILIO_FROM, body=body)
 
