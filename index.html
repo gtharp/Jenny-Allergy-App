@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jenny Allergy Alert</title>
-  <meta name="description" content="Daily allergy‑pollen outlook for Jenny in San Antonio, TX." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jenny Allergy App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1 class="site-title">Jenny Allergy Alert</h1>
-    <p class="tagline">Pollen & allergen forecast for San Antonio, TX</p>
-  </header>
-
-  <main>
-    <!--
-      Placeholder content.  
-      When you wire up a pollen API, swap the <span class="status"> text via JS.
-    -->
-    <section class="forecast-card">
-      <h2>Today’s Outlook <span class="date" id="today-date"></span></h2>
-      <p class="status high">High cedar pollen today. Expect itchy eyes 🤧</p>
-    </section>
-
-    <section class="about">
-      <h2>What is this?</h2>
-      <p>
-        This tiny web app will send Jenny an SMS each morning with the day’s pollen
-        forecast. That way she knows whether to grab antihistamines before she
-        walks out the door.
-      </p>
-      <p>
-        <strong>Current status:</strong> <code>static prototype</code>.  The SMS backend
-        (Twilio + GitHub Action) is in the works.
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Made with ❤ by George Tharp · <a href="https://github.com/gtharp/Jenny-Allergy-App">GitHub repo</a></p>
-  </footer>
+  <div class="container">
+    <h1>Pollen Report for San Antonio, TX</h1>
+    <div class="pollen-report">
+      <div class="pollen-item">
+        <h2>Tree Pollen</h2>
+        <p id="treePollen">Loading...</p>
+      </div>
+      <div class="pollen-item">
+        <h2>Ragweed Pollen</h2>
+        <p id="ragweedPollen">Loading...</p>
+      </div>
+    </div>
+    <p class="timestamp">Last Updated: <span id="lastUpdated">--:--</span></p>
+  </div>
 
   <script>
-    // Inject today’s date in friendly format
-    document.getElementById("today-date").textContent = new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+    document.addEventListener('DOMContentLoaded', () => {
+      // Replace YOUR_TOMORROW_IO_API_KEY with your actual key
+      const API_KEY = 4EyBhiKMv0nkC5g7P0Q9hgHLRhFKHeGL;
+      const lat = 29.4241;
+      const lon = -98.4936;
+      const mapping = ['None', 'Low', 'Medium', 'High', 'Extreme'];
+
+      async function fetchPollen() {
+        try {
+          const response = await fetch(
+            `https://api.tomorrow.io/v4/timelines?location=${lat},${lon}&fields=pollen_tree_index,pollen_ragweed_index&timesteps=1d&units=metric&apikey=${API_KEY}`
+          );
+          const data = await response.json();
+          const today = data.data.timelines[0].intervals[0].values;
+          const treeIndex = today.pollen_tree_index;
+          const ragweedIndex = today.pollen_ragweed_index;
+
+          const treeLabel = mapping[Math.min(treeIndex, mapping.length - 1)];
+          const ragweedLabel = mapping[Math.min(ragweedIndex, mapping.length - 1)];
+
+          const treeEl = document.getElementById('treePollen');
+          const ragweedEl = document.getElementById('ragweedPollen');
+          treeEl.textContent = treeLabel;
+          ragweedEl.textContent = ragweedLabel;
+
+          // Add classes for styling
+          treeEl.className = treeLabel;
+          ragweedEl.className = ragweedLabel;
+
+          const now = new Date();
+          document.getElementById('lastUpdated').textContent = now.toLocaleString();
+        } catch (err) {
+          console.error(err);
+          document.getElementById('treePollen').textContent = 'Error';
+          document.getElementById('ragweedPollen').textContent = 'Error';
+        }
+      }
+
+      fetchPollen();
+    });
   </script>
 </body>
 </html>
