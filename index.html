@@ -27,7 +27,7 @@
         This tiny web app pulls fresh pollen data each morning so Jenny knows whether to grab antihistamines before she walks out the door.
       </p>
       <p>
-        <strong>Current status:</strong> now fully <code>dynamic</code>! The SMS backend (Twilio + GitHub Action) is in the works.
+        <strong>Current status:</strong> now fully <code>dynamic</code>! The daily email backend (GitHub Action) is in the works.
       </p>
     </section>
   </main>
@@ -45,7 +45,11 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-      const API_KEY = "4EyBhiKMv0nkC5g7P0Q9hgHLRhFKHeGL"
+      // NOTE: Tomorrow.io key intentionally omitted — this file is public
+      // (served by GitHub Pages). Never commit a real key here; a client-side
+      // fetch can't keep it secret. Route this through a small serverless
+      // proxy if you want the live widget working again.
+      const API_KEY = "YOUR_TOMORROW_IO_API_KEY"
       const lat = 29.4241;
       const lon = -98.4936;
       const levels = ["None", "Low", "Medium", "High", "Extreme"];
@@ -61,7 +65,7 @@
 
           const json = await res.json();
           const idx = Number(
-            json.data.timelines[0].intervals[0].values.pollen_tree_index
+            json.data.timelines[0].intervals[0].values.treeIndex
           );
 
           const level = levels[Math.min(idx, levels.length - 1)];
